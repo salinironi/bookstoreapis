@@ -44,10 +44,23 @@ function newBook()
     }
     else
     {
-        $data['title']=trim($obj->title);
-        $data['author']=trim($obj->author);
-        $data['isbn']=trim($obj->isbn);
-        $data['release_date']=trim($obj->release_date);
+        if(isset($obj->title))
+            $data['title']=trim($obj->title);
+        else
+            $data['title']="";
+        if(isset($obj->author))
+            $data['author']=trim($obj->author);
+        else
+            $data['author']="";
+        if(isset($obj->isbn))
+            $data['isbn']=trim($obj->isbn);
+        else
+            $data['isbn']="";
+        if(isset($obj->release_date))
+            $data['release_date']=trim($obj->release_date);
+        else
+            $data['release_date']="";
+        
         if($data['title']=="")
         {
             $check_user['message']="Please pass a valid book title";
@@ -102,8 +115,10 @@ function retrieveBook()
         exit;
     }
     else
-    {
-        $data['isbn']=trim($obj->isbn);
+    {   if(isset($obj->isbn))
+            $data['isbn']=trim($obj->isbn);
+        else
+            $data['isbn']="";
         if($data['isbn']=="")
         {
             $check_user['message']="Please pass a valid isbn";
@@ -141,11 +156,26 @@ function editBook()
     }
     else
     {
-        $data['book_id']=trim($obj->book_id);
-        $data['title']=trim($obj->title);
-        $data['author']=trim($obj->author);
-        $data['isbn']=trim($obj->isbn);
-        $data['release_date']=trim($obj->release_date);
+        if(isset($obj->book_id))
+            $data['book_id']=trim($obj->book_id);
+        else
+            $data['book_id']="";
+        if(isset($obj->title))
+            $data['title']=trim($obj->title);
+        else
+            $data['title']="";
+        if(isset($obj->author))
+            $data['author']=trim($obj->author);
+        else
+            $data['author']="";
+        if(isset($obj->isbn))
+            $data['isbn']=trim($obj->isbn);
+        else
+            $data['isbn']="";
+        if(isset($obj->release_date))
+            $data['release_date']=trim($obj->release_date);
+        else
+            $data['release_date']="";
         if($data['book_id']=="")
         {
             $check_user['message']="Please pass a valid book id to update";
@@ -221,7 +251,10 @@ function deleteBook()
     }
     else
     {
-        $data['book_id']=trim($obj->book_id);
+        if(isset($obj->book_id))
+            $data['book_id']=trim($obj->book_id);
+        else
+            $data['book_id']="";
         if($data['book_id']=="")
         {
             $check_user['message']="Please pass a valid book id to delete";
@@ -257,8 +290,14 @@ function listBooks()
     }
     else
     {
-        $offset=trim($obj->offset);
-        $itemcount=trim($obj->itemcount);
+        if(isset($obj->offset))
+            $offset=trim($obj->offset);
+        else
+            $offset="";
+        if(isset($obj->itemcount))
+            $itemcount=trim($obj->itemcount);
+        else
+            $itemcount="";
         if($offset=="")
         {
             $check_user['message']="Please pass a valid offset count";
@@ -297,11 +336,26 @@ function searchBooks()
     }
     else
     {
-        $title=trim($obj->title);
-        $author=trim($obj->author);
-        $isbn=trim($obj->isbn);
-        $release_date=trim($obj->release_date);
-        $match_filter=trim($obj->match_filter);
+        if(isset($obj->title))
+            $title=trim($obj->title);
+        else
+            $title ="";
+        if(isset($obj->author))
+            $author=trim($obj->author);
+        else
+            $author ="";
+        if(isset($obj->isbn))
+            $isbn=trim($obj->isbn);
+        else
+            $isbn="";
+        if(isset($obj->release_date))
+            $release_date=trim($obj->release_date);
+        else
+            $release_date="";
+        if(isset($obj->match_filter))
+            $match_filter=trim($obj->match_filter);
+        else
+            $match_filter="any";
         if($title=="" && $author=="" && $isbn=="" && $release_date=="")
         {
             $check_user['message']="Please pass at least one filter say author or title or isbn or release_date to search bookstore";
