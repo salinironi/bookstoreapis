@@ -1,8 +1,8 @@
 <?php
 ini_set( "display_errors", true );
 define( "DB_DSN", "mysql:host=localhost;dbname=bookstore" );
-define( "DB_USERNAME", "bookstore" );
-define( "DB_PASSWORD", "bookstore123!@#" );
+define( "DB_USERNAME", "*******" );
+define( "DB_PASSWORD", "*********" );
 define( "CLASS_PATH", "/var/www/html/bookstoreapis/classes" );
 define( "TEMPLATE_PATH", "templates" );
 define('DIR_APPLICATION', '/var/www/html/bookstoreapis/');
